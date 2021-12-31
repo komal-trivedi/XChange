@@ -199,6 +199,7 @@ public abstract class NettyStreamingService<T> extends ConnectableService {
                     .option(
                         ChannelOption.CONNECT_TIMEOUT_MILLIS,
                         java.lang.Math.toIntExact(connectionTimeout.toMillis()))
+                    .option(ChannelOption.TCP_NODELAY,true)
                     .option(ChannelOption.SO_KEEPALIVE, true)
                     .channel(NioSocketChannel.class)
                     .handler(
